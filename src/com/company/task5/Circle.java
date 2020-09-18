@@ -1,8 +1,8 @@
 package com.company.task5;
 
 public class Circle {
-    private Point center;
-    private double radius;
+    protected Point center;
+    protected double radius;
 
     public Circle(Point center, double radius) {
         this.center = center;

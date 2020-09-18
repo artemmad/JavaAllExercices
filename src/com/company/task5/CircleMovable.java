@@ -1,5 +1,7 @@
 package com.company.task5;
 
+import com.company.task6.Point6Movable6;
+
 public class CircleMovable extends Circle implements Movable{
 
     public CircleMovable(Point center, double radius) {
@@ -8,6 +10,12 @@ public class CircleMovable extends Circle implements Movable{
 
     @Override
     public void move(int x, int y) {
-        ((PointMovable)getCenter()).move(x,y);
+        try {
+            ((PointMovable)getCenter()).move(x, y);
+        }
+        catch (Exception e){
+            getCenter().x += x;
+            getCenter().y+= y;
+        }
     }
 }
