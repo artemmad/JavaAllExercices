@@ -1,6 +1,7 @@
 package ru.mirea.exercise5;
 
-public class PointMovable extends Point implements Movable {
+public class
+PointMovable extends Point implements Movable {
 
 
     public PointMovable(int x, int y) {
