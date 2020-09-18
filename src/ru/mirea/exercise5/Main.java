@@ -12,5 +12,11 @@ public class Main {
         System.out.println(pointMovable);
         pointMovable.move(12,19);
         System.out.println(pointMovable);
+
+	System.out.println(circle);
+	CircleMovable circleMovable = new CircleMovable(pointMovable,10f);
+	System.out.println(circleMovable);
+	circleMovable.move(7,7);
+	System.out.println(circleMovable);
     }
 }

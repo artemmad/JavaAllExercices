@@ -1,7 +1,7 @@
 package ru.mirea.exercise5;
 
 public class Circle {
-    private Point center;
+    protected Point center;
     private double radius;
 
     public Circle(Point center, double radius) {
