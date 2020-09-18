@@ -1,4 +1,4 @@
-package ru.mirea.exercise5;
+package com.company.task5;
 
 public class PointMovable extends Point implements Movable {
 

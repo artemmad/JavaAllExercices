@@ -1,4 +1,4 @@
-package ru.mirea;
+package com.company;
 
 public class Main {
 
