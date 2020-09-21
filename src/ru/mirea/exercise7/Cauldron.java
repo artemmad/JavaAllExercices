@@ -1,9 +1,9 @@
 package ru.mirea.exercise7;
 
-public class Plate extends Dish {
-    public Plate(double radius, double height) {
+public class Cauldron extends Dish{
+    public Cauldron(double radius) {
         this.radius = radius;
-        this.height = height;
+        this.height = radius;
         this.volume = radius * radius * radius * Math.PI * 4 / 6;
     }
 }
