@@ -7,7 +7,6 @@ public class Rectangle {
     private int a;
     private int b;
     private Point center;
-
     public Rectangle(Point x, Point y) {
         this.x = x;
         this.y = y;

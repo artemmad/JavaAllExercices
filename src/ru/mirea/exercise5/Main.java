@@ -14,7 +14,7 @@ public class Main {
         System.out.println(pointMovable);
 
         Point point = new PointMovable(10,20);
-        System.out.println();
+        System.out.println(point);
         CircleMovable circle2  = new CircleMovable(new PointMovable(4,3),4.5f);
         System.out.println(circle2);
         circle2.move(4,6);
