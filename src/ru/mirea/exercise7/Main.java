@@ -9,5 +9,9 @@ public class Main {
         plate.calcVolume();
         ((Pan)pan).makeBorsh();
 
+        System.out.println(new Labrador("Sharik", 7));
+
     }
+
+
 }
