@@ -1,5 +1,7 @@
 package ru.mirea.exercise5;
 
+import com.company.task5.Point;
+
 public class Circle {
     private Point center;
     private double radius;
