@@ -40,21 +40,33 @@ public class Company {
             }
     }
     public List<Empoley> getTopSalaryStaff(int count) {
+        List<Empoley> sallary = new ArrayList<>();
         for (int i = 0; i < this.empolies.size(); i++)
-            for (int j = 0; j < this.empolies.size()-1; j++)
-                if (this.empolies.get(i).calcSalary(baseSalary) > this.empolies.get(i + 1).calcSalary(baseSalary))
-                    Collections.swap(empolies, j, j +1);
-        return  this.empolies.subList(0,count);
-    }
-    public List<Empoley> getLowestSalaryStaff (int count) {
-        for (int i = 0; i < this.empolies.size(); i++) {
-            for (int j = 1; j < this.empolies.size(); j++) {
-                if (this.empolies.get(i).calcSalary(baseSalary) < this.empolies.get(j).calcSalary(baseSalary)) {
-                    Collections.swap(empolies, i, j);
+            for (int j = 0; j < this.empolies.size()-1; j++) {
+                if (this.empolies.get(j).calcSalary(baseSalary) < this.empolies.get(j+1).calcSalary(baseSalary)) {
+                    Collections.swap(empolies,j,j+1);
                 }
             }
+        for (Empoley empoly : this.empolies) {
+            if (!sallary.contains(empoly))
+                sallary.add(empoly);
         }
-        return this.empolies.subList(0,count);
+        return  sallary.subList(0,count);
+    }
+    public List<Empoley> getLowestSalaryStaff (int count) {
+        List<Empoley> sallary = new ArrayList<>();
+        for (int i = 0; i < this.empolies.size(); i++)
+            for (int j = 0; j < this.empolies.size()-1; j++) {
+                if (this.empolies.get(j).calcSalary(baseSalary) > this.empolies.get(j+1).calcSalary(baseSalary)) {
+                    Collections.swap(empolies,j,j+1);
+                }
+            }
+        for (Empoley empoly : this.empolies)
+            if (!sallary.contains(empoly))
+                sallary.add(empoly);
+
+        return  sallary.subList(0,count);
+
     }
 
     public void hireall (ArrayList<Empoley> empolies){

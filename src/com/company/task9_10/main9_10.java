@@ -9,6 +9,7 @@ public class main9_10{
             int k=0;
             int l=1;
             ArrayList<Empoley> workers = new ArrayList<Empoley>();
+            ArrayList<Empoley> sallary = new ArrayList<Empoley>();
             Company comp=new Company();
                 while (k<180){
                     Empoley empoley=new Operator("Jhon","Sir"+toString(l));
@@ -31,15 +32,15 @@ public class main9_10{
                     k++;
                 }
             comp.hireall(workers);
-            List<Empoley> comp1 = comp.getTopSalaryStaff(workers.size()-1);
-            for(int i=0; i<workers.size()-1;i++) {
-                System.out.println((i+1)+".  "+comp1.get(i).calcSalary(comp.getBaseSalary())+"руб");
+            List<Empoley> comp1 = comp.getTopSalaryStaff(30);
+           for(int i=0; i<30;i++) {
+               System.out.println((i+1)+".  "+comp1.get(i).calcSalary(comp.getBaseSalary())+"руб");
             }
             comp.fire();
-            List<Empoley> comp2 = comp.getLowestSalaryStaff(workers.size());
-            for(int i=0; i<workers.size();i++) {
-                System.out.println((i+1)+".  "+comp2.get(i).calcSalary(comp.getBaseSalary())+"руб");
-            }
+           List<Empoley> comp2 = comp.getLowestSalaryStaff(10);
+           for(int i=0; i<10;i++) {
+              System.out.println((i+1)+".  "+comp2.get(i).calcSalary(comp.getBaseSalary())+"руб");
+           }
 
         }
 
