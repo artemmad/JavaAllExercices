@@ -3,9 +3,11 @@ package com.company.task9_10;
 import java.util.Random;
 
 public class Manager extends Empoley implements EmployeePosition{
+    private int personalIncome;
     public Manager(String name,String Surname) {
-        this.setName(name);
-        this.setSurname(Surname);
+        super(name, Surname);
+        Random random= new Random();
+        personalIncome=random.nextInt(140-115+1);
     }
 
     @Override
@@ -25,8 +27,8 @@ public class Manager extends Empoley implements EmployeePosition{
 
     @Override
     public double calcSalary(double baseSalary) {
-        Random random= new Random();
-        return (baseSalary+(random.nextInt(140-115+1)*1000)*0.05);
+
+        return (baseSalary+(personalIncome*1000)*0.05);
     }
 
 

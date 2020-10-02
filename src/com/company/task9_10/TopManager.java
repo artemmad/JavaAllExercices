@@ -4,9 +4,8 @@ public class TopManager extends Empoley implements EmployeePosition {
     private int Income;
 
     public TopManager(String name, String surname,int income) {
+        super(name, surname);
         Income = income;
-        this.setName(name);
-        this.setSurname(surname);
     }
 
     @Override
