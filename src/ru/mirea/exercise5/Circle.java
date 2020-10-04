@@ -3,6 +3,7 @@ package ru.mirea.exercise5;
 public class Circle {
     private Point center;
     private double radius;
+    private String color = "Red";
 
     public Circle(Point center, double radius) {
         this.center = center;
@@ -16,6 +17,8 @@ public class Circle {
     public double getRadius() {
         return radius;
     }
+
+
 
     @Override
     public String toString() {
