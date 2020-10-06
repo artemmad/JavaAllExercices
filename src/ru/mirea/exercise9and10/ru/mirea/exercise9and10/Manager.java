@@ -2,8 +2,8 @@ package ru.mirea.exercise9and10;
 
 public class Manager extends Employee{
 
-    Manager(String FirstName, String SecName, String pos, double baseSalary, double bonusSalary) {
-        super(FirstName, SecName, pos, baseSalary, bonusSalary);
+    Manager(String FirstName, String SecName){
+        super(FirstName, SecName);
     }
 
     @Override
