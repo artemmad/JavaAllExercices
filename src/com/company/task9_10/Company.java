@@ -17,6 +17,10 @@ public class Company {
         Income=scanner.nextInt();
     }
 
+    public ArrayList<Empoley> getEmpolies() {
+        return empolies;
+    }
+
     public int getBaseSalary() {
         return baseSalary;
     }
@@ -47,9 +51,16 @@ public class Company {
                     Collections.swap(empolies,j,j+1);
                 }
             }
-        for (Empoley empoly : this.empolies) {
-            if (!sallary.contains(empoly))
-                sallary.add(empoly);
+        sallary.add(empolies.get(0));
+            int k=0;
+        for (int i=1;i<this.empolies.size();i++) {
+            for (Empoley empoley : sallary) {
+                if (empoley.calcSalary(baseSalary) == empolies.get(i).calcSalary(baseSalary))
+                    k++;
+            }
+            if (k==0)
+                sallary.add(empolies.get(i));
+            k=0;
         }
         return  sallary.subList(0,count);
     }
@@ -61,10 +72,17 @@ public class Company {
                     Collections.swap(empolies,j,j+1);
                 }
             }
-        for (Empoley empoly : this.empolies)
-            if (!sallary.contains(empoly))
-                sallary.add(empoly);
-
+        sallary.add(empolies.get(0));
+            int k=0;
+        for (int i=1;i<this.empolies.size();i++) {
+            for (Empoley empoley : sallary) {
+                if (empoley.calcSalary(baseSalary) == empolies.get(i).calcSalary(baseSalary))
+                    k++;
+            }
+            if (k==0)
+                sallary.add(empolies.get(i));
+            k=0;
+        }
         return  sallary.subList(0,count);
 
     }
@@ -72,19 +90,11 @@ public class Company {
     public void hireall (ArrayList<Empoley> empolies){
         this.empolies.addAll(empolies);
     }
-    public void fire(){
-        String name,surname;
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите имя для увольнения");
-        name=scanner.nextLine();
-        System.out.println("Введите фамилию для увольнения");
-        surname=scanner.nextLine();
+    public void fire(String name,String surname){
         for (int i=0;i<empolies.size();i++){
-            if (name.equals(this.empolies.get(i).getName())){
-                if (surname.equals(this.empolies.get(i).getSurname())){
-                    this.empolies.remove(i);
+            boolean ventil =this.empolies.get(i).equals(new Empoley(name,surname));
+            if (ventil)
+                this.empolies.remove(i);
                 }
             }
-        }
-    }
 }
