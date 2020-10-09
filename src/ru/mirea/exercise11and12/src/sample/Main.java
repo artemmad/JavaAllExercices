@@ -63,17 +63,17 @@ public class Main extends Application{
         ArrayList<Button> numberButtons = new ArrayList<>();
         ArrayList<Button> operatorButtons = new ArrayList<>();
 
-        int buttonCounter = 0;
+        int buttonCounter = 9;
         int buttonWidth = 50;
         int buttonHeight = 50;
-        for(int y = 0; y < 2; y++){
+        for(int y = 0; y < 4; y++){
             RowConstraints row = new RowConstraints();
-            row.setPercentHeight(20);
+            row.setPercentHeight(5);
             numberGrid.getRowConstraints().add(row);
-            for(int x = 0; x < 5 && buttonCounter < 10; x++, buttonCounter++){
+            for(int x = 0; x < 3 && buttonCounter > -1; x++, buttonCounter--){
                 if(y == 0){
                     ColumnConstraints column = new ColumnConstraints();
-                    column.setPercentWidth(33);
+                    column.setPercentWidth(5);
                     column.setHalignment(HPos.CENTER);
                     numberGrid.getColumnConstraints().add(column);
                 }
@@ -87,12 +87,12 @@ public class Main extends Application{
         String[][] operatorTextArr = {{"+", "-"}, {"*", "/"}, {"=", "c"}};
         for(int y = 0; y < operatorTextArr.length; y++){
             RowConstraints row = new RowConstraints();
-            row.setPercentHeight(20);
+            row.setPercentHeight(5);
             operatorGrid.getRowConstraints().add(row);
             for(int x = 0; x < operatorTextArr[y].length; x++){
                 if(y == 0){
                     ColumnConstraints column = new ColumnConstraints();
-                    column.setPercentWidth(33);
+                    column.setPercentWidth(5);
                     column.setHalignment(HPos.CENTER);
                     operatorGrid.getColumnConstraints().add(column);
                 }
