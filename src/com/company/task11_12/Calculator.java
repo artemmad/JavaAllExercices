@@ -12,14 +12,15 @@ import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
 public class Calculator extends Application {
-    private double a=0;
-    private double b=0;
+    private double a = 0;
+    private double b = 0;
     private Button Multiply;
     private Button plus;
     private Button minus;
     private Button divide;
+    private Button equals;
+    String c;
     private TextField textField1;
-    private TextField textField2;
 
 
     public void thisStart() {
@@ -28,68 +29,41 @@ public class Calculator extends Application {
 
 
     private TextField textFieldMaker(int a) {
-        if (a == 1) {
-            textField1 = new TextField();
-            textField1.setPrefSize(500, 100);
-            textField1.setFont(Font.font(30));
-            return textField1;
-        } else {
-            textField2 = new TextField();
-            textField2.setLayoutY(110);
-            textField2.setPrefSize(500, 100);
-            textField2.setFont(Font.font(30));
-            return textField2;
-        }
+        textField1 = new TextField();
+        textField1.setPrefSize(500, 100);
+        textField1.setFont(Font.font(30));
+        return textField1;
+
     }
 
-
-
-    private void calc(String c){
-
-        {
-            while (!textField1.getText().equals("")) {
-                b = Double.parseDouble((textField1.getText()));
-            }
-            if (!textField1.getText().equals("")) {
-                switch (c) {
-                    case "*":
-                        textField2.setText(String.valueOf(a * b));
-                        break;
-                    case "-":
-                        textField2.setText(String.valueOf(a - b));
-                        break;
-                    case "/":
-                        textField2.setText(String.valueOf(a / b));
-                        break;
-                    case "+":
-                        textField2.setText(String.valueOf(a + b));
-                        break;
-                }
-            }
-        }
-    }
 
     public void start(Stage stage) throws Exception {
         Multiply = new Button("*");
-        Multiply.setFont(Font.font(100));
+        Multiply.setFont(Font.font(80));
         Multiply.setLayoutX(0);
-        Multiply.setLayoutY(280);
+        Multiply.setLayoutY(100);
+        Multiply.setPrefSize(225,200);
         plus = new Button("+");
-        plus.setLayoutX(240);
-        plus.setLayoutY(280);
-        plus.setFont(Font.font(100));
+        plus.setLayoutX(250);
+        plus.setLayoutY(100);
+        plus.setFont(Font.font(80));
+        plus.setPrefSize(225,200);
         minus = new Button("-");
-        minus.setLayoutX(240);
-        minus.setLayoutY(500);
-        minus.setFont(Font.font(100));
+        minus.setLayoutX(250);
+        minus.setLayoutY(310);
+        minus.setFont(Font.font(80));
+        minus.setPrefSize(225,200);
         divide = new Button("/");
+        divide.setPrefSize(225,200);
         divide.setLayoutX(0);
-        divide.setLayoutY(500);
-        divide.setFont(Font.font(100));
-        Text text = new Text("");
-        text.setFont(Font.font(30));
-        text.setLayoutY(110);
-        Group group = new Group(textFieldMaker(1), textFieldMaker(2), Multiply, minus, plus, divide);
+        divide.setLayoutY(310);
+        divide.setFont(Font.font(80));
+        equals = new Button("=");
+        equals.setLayoutX(0);
+        equals.setLayoutY(520);
+        equals.setFont(Font.font(80));
+        equals.setPrefSize(500, 100);
+        Group group = new Group(textFieldMaker(1), Multiply, minus, plus, divide, equals);
 
         Scene scene = new Scene(group, Color.RED);
         stage.setScene(scene);
@@ -105,36 +79,58 @@ public class Calculator extends Application {
             @Override
             public void handle(ActionEvent actionEvent) {
                 a = Double.parseDouble(textField1.getText());
-                textField1.setText("");
-                calc("-");
+                textField1.clear();
+                c = "-";
             }
         });
         plus.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 a = Double.parseDouble(textField1.getText());
-                textField1.setText("");
-                calc("+");
+                textField1.clear();
+                c = "+";
             }
         });
         Multiply.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 a = Double.parseDouble(textField1.getText());
-                textField1.setText("");
-                calc("*");
+                textField1.clear();
+                c = "*";
             }
         });
         divide.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-               a = Double.parseDouble((textField1.getText()));
-               textField1.setText("");
-               calc("/");
+                a = Double.parseDouble((textField1.getText()));
+                textField1.clear();
+                c = "/";
 
+            }
+        });
+        equals.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                b = Double.parseDouble((textField1.getText()));
+                textField1.clear();
+                calc(c);
             }
         });
 
     }
+
+    private void calc(String c) {
+
+                if (c.equals("*")) {
+                    textField1.setText(String.valueOf(a * b));
+                }
+                else if (c.equals("-"))
+                        textField1.setText(String.valueOf(a - b));
+                else if( c.equals("/"))
+                        textField1.setText(String.valueOf(a / b));
+                else
+                    textField1.setText(String.valueOf(a + b));
+    }
 }
+
 
