@@ -20,7 +20,7 @@ public class Calculator extends Application {
     private Button divide;
     private TextField textField1;
     private TextField textField2;
-    String c="";
+
 
     public void thisStart() {
         Application.launch();
@@ -42,8 +42,31 @@ public class Calculator extends Application {
         }
     }
 
-    public void setC(String c) {
-        this.c = c;
+
+
+    private void calc(String c){
+
+        {
+            while (!textField1.getText().equals("")) {
+                b = Double.parseDouble((textField1.getText()));
+            }
+            if (!textField1.getText().equals("")) {
+                switch (c) {
+                    case "*":
+                        textField2.setText(String.valueOf(a * b));
+                        break;
+                    case "-":
+                        textField2.setText(String.valueOf(a - b));
+                        break;
+                    case "/":
+                        textField2.setText(String.valueOf(a / b));
+                        break;
+                    case "+":
+                        textField2.setText(String.valueOf(a + b));
+                        break;
+                }
+            }
+        }
     }
 
     public void start(Stage stage) throws Exception {
@@ -83,7 +106,7 @@ public class Calculator extends Application {
             public void handle(ActionEvent actionEvent) {
                 a = Double.parseDouble(textField1.getText());
                 textField1.setText("");
-                setC("-");
+                calc("-");
             }
         });
         plus.setOnAction(new EventHandler<ActionEvent>() {
@@ -91,7 +114,7 @@ public class Calculator extends Application {
             public void handle(ActionEvent actionEvent) {
                 a = Double.parseDouble(textField1.getText());
                 textField1.setText("");
-                setC("+");
+                calc("+");
             }
         });
         Multiply.setOnAction(new EventHandler<ActionEvent>() {
@@ -99,7 +122,7 @@ public class Calculator extends Application {
             public void handle(ActionEvent actionEvent) {
                 a = Double.parseDouble(textField1.getText());
                 textField1.setText("");
-                setC("*");
+                calc("*");
             }
         });
         divide.setOnAction(new EventHandler<ActionEvent>() {
@@ -107,24 +130,11 @@ public class Calculator extends Application {
             public void handle(ActionEvent actionEvent) {
                a = Double.parseDouble((textField1.getText()));
                textField1.setText("");
-               setC("/");
+               calc("/");
 
             }
         });
-        if(!c.equals("")) {
-            if (textField1.getText() != null) {
-                b = Double.parseDouble((textField1.getText()));
-            }
-            if (c.equals("*")) {
-                textField2.setText(String.valueOf(a * b));
-            } else if (c.equals("-")) {
-                textField2.setText(String.valueOf(a - b));
-            } else if (c.equals("/")) {
-                textField2.setText(String.valueOf(a / b));
-            } else if (c.equals("+")) {
-                textField2.setText(String.valueOf(a + b));
-            }
-        }
+
     }
 }
 
