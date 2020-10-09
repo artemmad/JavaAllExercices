@@ -8,6 +8,7 @@ import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -45,7 +46,7 @@ public class Main extends Application{
         VBox root = new VBox();
         Scene scene = new Scene(root, windowWidth, windowHeight, Color.WHITE);
 
-        Label expressionLabel = new Label();
+        TextField expressionLabel = new TextField();
 //      expressionLabel.setEditable(false);
 
         GridPane numberGrid = new GridPane();
@@ -106,8 +107,7 @@ public class Main extends Application{
 
         //Makes clicking the number buttons add to the expressionLabel
         for(int counter = 0; counter < numberButtons.size(); counter++){
-            numberButtons.get(counter).setOnAction(new EventHandler<ActionEvent>(){
-                public void handle(ActionEvent e){
+            numberButtons.get(counter).setOnAction(e -> {
                     //Gets info about the clicked button
                     Button temp = (Button)e.getSource();
                     if(scriptExceptionOccurred){
@@ -130,7 +130,7 @@ public class Main extends Application{
                         */
                         secondOperand = true;
                     }
-                }
+
             });
         }
 
