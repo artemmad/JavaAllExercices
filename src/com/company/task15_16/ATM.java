@@ -1,16 +1,22 @@
 package com.company.task15_16;
 
+import java.util.Enumeration;
 import java.util.Random;
 
 public class ATM implements Runnable{
     private account ac1;
     private boolean done;
 
+    enum Operation{
+        WITHDRAWL,
+        REPLENISHMENT
+    }
+
     public ATM(account ac1) {
         this.ac1 = ac1;
     }
 
-    public  void withdrawal(double summ){
+    public synchronized void withdrawal(double summ){
             if (ac1.getBalance()<0){
                 System.out.println("Снятие невозможно");
             }
@@ -23,14 +29,20 @@ public class ATM implements Runnable{
 
     }
 
-    public  void replenisment(double summ){
+    public synchronized void replenisment(double summ){
        ac1.setBalance(ac1.getBalance()+summ);
         System.out.println(Thread.currentThread().getName());
         System.out.println("Баланс после пополнения:"+(ac1.getBalance()));
     }
-
+    private synchronized void choose() {
+        Random random = new Random();
+        int i = 0;
+        i = random.nextInt(2) + 1;
+        if (i == 1) withdrawal(random.nextDouble());
+        else replenisment(random.nextDouble());
+    }
     @Override
-    public synchronized void run() {
+    public  void run() {
             while (true) {
                 Random random = new Random();
                 try {
@@ -40,11 +52,7 @@ public class ATM implements Runnable{
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                double n = 139211;
-                int i = 0;
-                i = random.nextInt(2) + 1;
-                if (i == 1) withdrawal(random.nextDouble());
-                else replenisment(random.nextDouble());
+              choose();
 
         }
     }
