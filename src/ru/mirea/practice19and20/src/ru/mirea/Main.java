@@ -7,5 +7,6 @@ public class Main {
 
         Number myNum = new Number();
         System.out.println(myNum.getNumber());
+        System.out.println(myNum.getAwesomeNumber());
     }
 }
