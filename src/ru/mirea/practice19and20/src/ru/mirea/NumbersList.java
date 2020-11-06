@@ -10,8 +10,7 @@ public class NumbersList {
     public void addElement() {
         Numbers.add(new Number().getAwesomeNumber());
         Numbers.add(new Number().getAwesomeNumber());
+        Numbers.add(new Number().getNumber());
     }
-
-
 }
 

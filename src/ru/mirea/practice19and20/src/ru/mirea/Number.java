@@ -16,15 +16,15 @@ public class Number {
     String awesomeValue;
     private String buf = "";
     public Number getNumber(){
-          buf = "";
-          buf += alphas.charAt(r.nextInt(digits.length()));
+          buf = "Х333ЕЛ";
+          /* buf += alphas.charAt(r.nextInt(digits.length()));
        for (int i = 0; i < 3; i++) {
            buf += digits.charAt(r.nextInt(digits.length()));
        }
 
         for (int i = 0; i < 2; i++) {
             buf += alphas.charAt(r.nextInt(alphas.length()));
-        }
+        } */
         numberValue = buf;
        return this;
     }
