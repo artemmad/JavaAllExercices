@@ -12,11 +12,12 @@ public class Number {
     private String alphas = "АВЕКМНОРСТУХ";
     private String digits = "1234567890";
     private List<String> bd = new ArrayList(Arrays.asList("111","222","333","444","555","666","777","888","999","000"));
-
+    String numberValue;
+    String awesomeValue;
     private String buf = "";
-    public String getNumber(){
+    public Number getNumber(){
           buf = "";
-          buf += alphas.charAt(r.nextInt(alphas.length()));
+          buf += alphas.charAt(r.nextInt(digits.length()));
        for (int i = 0; i < 3; i++) {
            buf += digits.charAt(r.nextInt(digits.length()));
        }
@@ -24,10 +25,10 @@ public class Number {
         for (int i = 0; i < 2; i++) {
             buf += alphas.charAt(r.nextInt(alphas.length()));
         }
-
-       return buf;
+        numberValue = buf;
+       return this;
     }
-    public String getAwesomeNumber(){
+    public Number getAwesomeNumber(){
         buf = "";
         buf += alphas.charAt(r.nextInt(alphas.length()));
 
@@ -37,7 +38,17 @@ public class Number {
             buf += alphas.charAt(r.nextInt(alphas.length()));
         }
 
-        return buf;
+        awesomeValue = buf;
+        return this;
+    }
+
+
+    public String getNumberValue() {
+        return numberValue;
+    }
+
+    public String getAwesomeValue() {
+        return awesomeValue;
     }
 }
 
