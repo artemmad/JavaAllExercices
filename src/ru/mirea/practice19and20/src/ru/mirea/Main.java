@@ -11,13 +11,8 @@ public class Main {
         //System.out.println(myNum.getAwesomeNumber().getAwesomeValue());
         Scanner scan = new Scanner(System.in);
         NumbersList myNumList = new NumbersList();
-        myNumList.addElement();
-        for (Number s : myNumList.Numbers) {
-
-                System.out.println(s.getAwesomeValue());
-                if (s.getNumber().getNumberValue().contains(scan.nextLine())){
-                    System.out.println("Такой номер есть\n");
-                }
-        }
+        myNumList.addHash();
+        myNumList.findNumber(scan);
+        myNumList.findHash(scan);
     }
 }
