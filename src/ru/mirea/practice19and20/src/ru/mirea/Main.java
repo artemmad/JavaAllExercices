@@ -12,7 +12,10 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         NumbersList myNumList = new NumbersList();
         myNumList.addHash();
-        myNumList.findNumber(scan);
+        //myNumList.addElement();
+        //myNumList.createTree();
         myNumList.findHash(scan);
+        //myNumList.searchTree(scan);
+        //myNumList.findNumber(scan);
     }
 }
