@@ -1,4 +1,4 @@
-package com.company.task20_21.complexnumbers;
+package com.company.task21_22.complexnumbers;
 
 public class ComplexNumber implements CompNumber {
     private double re;
