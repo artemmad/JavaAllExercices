@@ -1,22 +1,21 @@
 package com.company;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+import java.util.stream.Stream;
 
 public class Main {
 
-    public static void main(String[] args) {
-//        Random random = new Random();
-//        ArrayList <Integer> b= new ArrayList<Integer>();
-//        for (int i = 0; i < 270; i++)
-//            b.add(i,random.nextInt(125000-50000+1));
-//        for (int i = 0; i < b.size(); i++)
-//            for (int j = 0; j < b.size()-1; j++)
-//                if (b.get(j) > b.get(j +1))
-//                    Collections.swap(b, j, j +1);
-//        for (int i = 0; i < 270; i++)
-//            System.out.println(b.get(i));
-
+    public static void main(String[] args) throws IOException {
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
+        while (true) {
+            Stream<String> x = in.lines();
+            System.out.println(x);
+        }
     }
 }
