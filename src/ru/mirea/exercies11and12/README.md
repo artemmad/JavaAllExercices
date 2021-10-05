@@ -19,3 +19,4 @@
 - На всякий случай [видео по старту в JavaFX в IntelliJ IDEA](https://www.youtube.com/watch?v=nKIMGH0l3Wo&ab_channel=PaulGestwicki);
 - Как вариант можно воспользоваться [данным гайдом](https://www.youtube.com/watch?v=p5ifU9kkp6g&ab_channel=KodySimpson) по построению калькулятора.
 
+Вместо создания javaFx приложения можно создать RestAPI на Spring Boot котрое реализует все те же операции. Это касается так же и всех остальных задач которые требуют и не требуют интерфейса. За 1 задачу на spring boot в зависимости от степени сложности может быть зачтена одна и более практика.
